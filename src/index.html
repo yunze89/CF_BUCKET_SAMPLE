@@ -26,7 +26,7 @@
         </div>
 
         <!-- progress bar -->
-        <div class="progress-bar">
+        <div id="progress-bar" class="progress-bar">
             <img class="spinner" src="spinner.gif"/>
             <span>Processing...</span>
         </div>
@@ -36,9 +36,6 @@
             <!-- 결과값 라벨 표시 -->
             <div id="label-container" class="label-container"></div>
         </div>
-
-        
-        
     </div>
 
 
@@ -49,7 +46,7 @@
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
     // the link to your model provided by Teachable Machine export panel
-    const MODEL_DIR = "../model/";
+    const MODEL_DIR = "./model/";
 
     let model, webcam, labelContainer, maxPredictions;
     let targetFrame;
@@ -57,6 +54,7 @@
 
     // Load the image model and setup the webcam
     async function init() {
+        document.getElementById('progress-bar').style.display='block';
         const modelURL = MODEL_DIR + "model.json";
         const metadataURL = MODEL_DIR + "metadata.json";
 
@@ -79,10 +77,14 @@
 
         select = document.getElementById('select');
         navigator.mediaDevices.enumerateDevices().then(gotDevices);
+
+        document.getElementById('progress-bar').style.display='none';
     }
 
     //webcam 시작
     async function startWebcam() {
+        document.getElementById('progress-bar').style.display='block';
+
         console.log(select.value);
 
         //setup the webcam
@@ -100,6 +102,7 @@
 
         document.getElementById("webcam-container").innerHTML ="";
         document.getElementById("webcam-container").appendChild(webcam.canvas);
+        document.getElementById('progress-bar').style.display='none';
     }
 
     //webcam update loop
@@ -112,7 +115,6 @@
 
     //webcam capture : webcam update stop and call predict
     async function captureWebcam() {
-
         await webcam.pause();
 
         //loop 함수 중지
