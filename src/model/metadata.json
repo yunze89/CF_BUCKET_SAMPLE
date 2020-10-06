@@ -1,1 +1,1 @@
-{"tfjsVersion":"1.3.1","tmVersion":"2.2.2","packageVersion":"0.8.4","packageName":"@teachablemachine/image","timeStamp":"2020-10-01T01:19:57.287Z","userMetadata":{},"modelName":"tm-my-image-model","labels":["PASS","NOT_PASS"]}
+{"tfjsVersion":"1.3.1","tmVersion":"2.2.2","packageVersion":"0.8.4","packageName":"@teachablemachine/image","timeStamp":"2020-10-06T10:28:50.470Z","userMetadata":{},"modelName":"tm-my-image-model","labels":["Pass","Fail"]}
